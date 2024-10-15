@@ -15,9 +15,9 @@ export default function DashboardPage() {
     if (!user) {
       router.push('/login');
     } else {
+        console.log(user);
       const fetchUserData = async () => {
         const userDoc = await getDoc(doc(db, 'users', user.uid));
-        console.log(userDoc.data());
         setUserData(userDoc.data());
       };
       fetchUserData();
